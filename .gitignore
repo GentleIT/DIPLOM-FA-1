@@ -29,3 +29,12 @@ dist
 data/*.sqlite
 public/uploads/*
 !public/uploads/.gitkeep
+
+public/uploads/
+server/uploads/
+
+data/*.sqlite
+data/*.sqlite-journal
+data/*.sqlite-wal
+
+dist/

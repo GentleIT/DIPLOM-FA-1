@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": { "node": ">=20" },
   "scripts": {
     "dev": "vite",
     "dev:api": "nodemon server/index.js",
@@ -15,7 +16,8 @@
     "update-archive": "node scripts/update-archive-list.js",
     "start:api": "node server/index.js",
     "migrate:supabase": "node scripts/migrate-from-supabase.js",
-    "seed": "node scripts/seed.js"
+    "seed": "node scripts/seed.js",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

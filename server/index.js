@@ -875,9 +875,16 @@ app.post("/api/assistant/chat", async (req, res) => {
   res.json({ reply: fallback, relevantLinks: links });
 });
 
+const distDir = path.resolve(process.cwd(), "dist");
+app.use(express.static(distDir));
+
 app.use((req, res) => {
   if (req.originalUrl.startsWith("/api")) {
     return res.status(404).json({ error: `Маршрут ${req.originalUrl} не найден на сервере` });
+  }
+  const indexFile = path.join(distDir, "index.html");
+  if (req.method === "GET" && fs.existsSync(indexFile)) {
+    return res.sendFile(indexFile);
   }
   res.status(404).send("Not found");
 });
