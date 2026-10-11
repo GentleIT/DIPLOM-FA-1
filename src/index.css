@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Kazakhstan-inspired color palette */
+    --background: 210 25% 98%;
+    --foreground: 215 35% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 15%;
+
+    /* Sky blue - main brand color */
+    --primary: 197 71% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Gold accent */
+    --secondary: 45 93% 58%;
+    --secondary-foreground: 215 35% 15%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 20% 45%;
+
+    /* Turquoise accent */
+    --accent: 175 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 197 71% 52%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors */
+    --kazakh-blue: 197 71% 52%;
+    --kazakh-gold: 45 93% 58%;
+    --kazakh-dark: 215 45% 20%;
+    --kazakh-light: 45 50% 96%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(197 71% 52%), hsl(210 60% 45%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 93% 58%), hsl(35 90% 50%));
+    --gradient-hero: linear-gradient(180deg, hsl(197 71% 52% / 0.1), hsl(45 93% 58% / 0.05));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 25% 98%));
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(215 35% 15% / 0.08);
+    --shadow-elevated: 0 12px 40px -8px hsl(215 35% 15% / 0.12);
+    --shadow-glow: 0 0 40px hsl(197 71% 52% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 45% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 40% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 40% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 197 71% 55%;
+    --primary-foreground: 215 45% 8%;
+
+    --secondary: 45 93% 55%;
+    --secondary-foreground: 215 45% 8%;
+
+    --muted: 215 35% 18%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 175 55% 50%;
+    --accent-foreground: 215 45% 8%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 197 71% 55%;
+
+    --kazakh-blue: 197 71% 55%;
+    --kazakh-gold: 45 93% 55%;
+    --kazakh-dark: 215 45% 8%;
+    --kazakh-light: 215 35% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Times New Roman", Times, serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", Times, serif;
+  }
+}
+
+@layer components {
+  .kazakh-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L35 10L45 10L37 17L40 27L30 21L20 27L23 17L15 10L25 10Z' fill='%23f5c842' fill-opacity='0.08'/%3E%3C/svg%3E");
+  }
+
+  .book-shadow {
+    box-shadow: 
+      0 0 0 1px hsl(var(--border)),
+      4px 0 8px -2px hsl(215 35% 15% / 0.1),
+      8px 0 16px -4px hsl(215 35% 15% / 0.08);
+  }
+
+  .page-turn {
+    transform-origin: left center;
+    transition: transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .glass-effect {
+    background: hsl(0 0% 100% / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(0 0% 100% / 0.3);
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 93% 50%), hsl(35 90% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-blue {
+    background: linear-gradient(135deg, hsl(197 71% 45%), hsl(210 60% 40%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(197 71% 52% / 0.4);
+  }
+  50% { 
+    box-shadow: 0 0 40px hsl(197 71% 52% / 0.6);
+  }
+}
+
+@keyframes page-flip {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-180deg); }
+}
+
+/* Book flip animation styles */
+.book-page-flip {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.book-page-flip-enter {
+  animation: bookFlipIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.book-page-flip-exit {
+  animation: bookFlipOut 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes bookFlipIn {
+  0% {
+    transform: rotateY(-90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes bookFlipOut {
+  0% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+}
